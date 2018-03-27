@@ -1,0 +1,13 @@
+seed  1                #seed for random number generator
+N  1048576                #n of nodes
+steps  18               #n of hierarchical levels/steps
+fixed_links  10          #fixed number of links between block pairs
+realizations  1
+prob  0.30
+Emin          3.0         #Lower  bound of search interval
+Emax          3.2         #upper bound of search interval
+M0            250         #Initial guess for subspace dimension to be used
+M             250          #Total number of eigenvalues found in the interval
+loop           0         #Number of refinement loop
+info           0         #Errors
+epsout         0.0         #Relative error on the trace
