@@ -48,6 +48,7 @@ void FileReader::setParameter(const std::string &key, int in)
 
 bool FileReader::readFile(const std::string &name)
 {
+  std::cout<<name<<std::endl;
    ifstream infile(name.c_str());
    if (!infile) {
        std::cout<<"opening file failed"<<endl;

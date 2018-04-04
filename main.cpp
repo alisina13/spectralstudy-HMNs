@@ -55,8 +55,27 @@ int main(int argc, char **argv)
     conf.registerIntParameter("info");
     conf.registerRealParameter("epsout");
 
+   string inputfilepath = "FileReaderTestInput.txt";
+   std::cout<<argv[0]<<argv[1]<<std::endl;
+    // parseparameters
+    if (argc < 2) {
+        // Tell the user how to run the program
+        std::cerr << "Usage: you can give an input file as parameter " << std::endl;
+
+        /* "Usage messages" are a conventional way of telling the user
+         * how to run a program if they enter the command incorrectly.
+         */
+
+
+    }
+    else {
+    inputfilepath = argv[1];
+  }
+
+
+
     //reading file
-    conf.readFile("FileReaderTestInput.txt");
+    conf.readFile( inputfilepath);
     conf.printParameters();
 
     double prob = conf.getRealParameter("prob");
