@@ -1,13 +1,15 @@
 #!/bin/bash -l
 #
 # allocate 16 nodes (64 CPUs) for 6 hours
-#PBS -l nodes=4:ppn=40,walltime=16:00:00
+#PBS -l nodes=4:ppn=40,walltime=01:00:00
 #
 # job name 
 #PBS -N TestAval
 #
 # stdout and stderr files
 #PBS -o aval.out -e aval.err
+#
+#PBS -q devel
 #
 # first non-empty non-comment line ends PBS options
 
@@ -29,6 +31,7 @@ if [ ! "${HOSTN#ww8}" == "$(hostname)" ]; then
   echo  "Hi:   $SIMPATH/$INPUTFILE"
   $EXEC "$SIMPATH/$INPUTFILE"
 else
+  echo  "Hi:   $SIMPATH/$INPUTFILE"
   mkdir ${HOME}/$PBS_JOBID
   cd ${HOME}/$PBS_JOBID
   module load intel64
