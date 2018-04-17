@@ -46,9 +46,9 @@ public:
               ja[valpt] = e+1;//changed
               //cout<<row_id<<" ______"<<e<<endl;
               //for Laplacian matrix (Normallized L):
-              a[valpt] = (e!=row_id)? -1.0/(static_cast<NodeVal>(degree)) : 1.0 ;
+              //a[valpt] = (e!=row_id)? -1.0/(static_cast<NodeVal>(degree)) : 1.0 ;
               //for adjacency matrix:
-            //  a[valpt] = (e!=row_id)? 1.0 : 0.0;
+              a[valpt] = (e!=row_id)? 1.0 : 0.0;
               ++valpt;
               //cout<<valpt<<endl;
           }
