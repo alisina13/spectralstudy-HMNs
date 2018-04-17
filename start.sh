@@ -20,7 +20,7 @@
 EXEC="$HOME/Projects/hmn-percolation/percolation"
 
 INPUTFILE='FileReaderTestInput.txt'
-SIMPATH="$HOME/Projects/hmn-percolation/Results/laplacianTest"
+SIMPATH="$HOME/Projects/hmn-percolation/Results/laplacian"
 
 # run
 HOSTN=$(hostname)
