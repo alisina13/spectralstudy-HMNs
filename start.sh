@@ -1,9 +1,9 @@
 #!/bin/bash -l
 #
 # allocate 16 nodes (64 CPUs) for 6 hours
-#PBS -l nodes=4:ppn=40,walltime=01:00:00
+#PBS -l nodes=4:ppn=40,walltime=16:00:00
 #
-# job name 
+# job name
 #PBS -N TestAval
 #
 # stdout and stderr files
@@ -20,7 +20,7 @@
 EXEC="$HOME/Projects/hmn-percolation/percolation"
 
 INPUTFILE='FileReaderTestInput.txt'
-SIMPATH="$HOME/Projects/hmn-percolation/Results/alpha10/20/p045"
+SIMPATH="$HOME/Projects/hmn-percolation/Results/laplacianTest"
 
 # run
 HOSTN=$(hostname)
@@ -31,7 +31,6 @@ if [ ! "${HOSTN#ww8}" == "$(hostname)" ]; then
   echo  "Hi:   $SIMPATH/$INPUTFILE"
   $EXEC "$SIMPATH/$INPUTFILE"
 else
-  echo  "Hi:   $SIMPATH/$INPUTFILE"
   mkdir ${HOME}/$PBS_JOBID
   cd ${HOME}/$PBS_JOBID
   module load intel64
@@ -46,5 +45,3 @@ else
 fi
 # save output on parallel file system
 #mkdir -p ${HOME}/codes/SIMSRC/$PBS_JOBID
-
-
