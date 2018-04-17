@@ -37,7 +37,7 @@ int main(int argc, char **argv)
 {
     FileReader   conf;
     /* Declaration of FEAST variables */
-    char         UPLO = 'U'; /* Type of matrix: (F means full matrix, L/U - lower/upper triangular part of matrix) */
+    char         UPLO = 'F'; /* Type of matrix: (F means full matrix, L/U - lower/upper triangular part of matrix) */
     MKL_INT      fpm[128];      /* Array to pass parameters to Intel MKL Extended Eigensolvers */
 
     /* Declaration of local variables */
@@ -133,7 +133,7 @@ int main(int argc, char **argv)
         {res[i] = 0.;}
 
         //number of nonzeroes in upper triangular matrix, always including diagonal
-        MKL_INT nnz = ncsr.get_n_of_links()/2 + newN ;
+        MKL_INT nnz = ncsr.get_n_of_links() + newN ;//The adjacency matrix is symmetric but the Normallized laplacian is not
         double  *a  = (double*)mkl_malloc(nnz*sizeof(double),64);
         MKL_INT *ja = (MKL_INT*)mkl_malloc(nnz*sizeof(MKL_INT),64);
         MKL_INT *ia = (MKL_INT*)mkl_malloc((newN+1)*sizeof(MKL_INT),64);

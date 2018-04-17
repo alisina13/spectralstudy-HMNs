@@ -36,17 +36,19 @@ public:
           //always store diagonal elements, even if =0, MKL likes it this way
           els.push_back(row_id);
           for(auto& nn: neighbors) {
-              if(nn>row_id) els.push_back(nn);
+              /*if(nn>row_id)*/ els.push_back(nn); //IF statement makes the settings for symmetric cases
+              //when you just need the Upper and lower part of matrix(Adjacency), but for Normallized laplacian
+              //we give the full matrix
           }
           //sort column indices is ascending order, MKL likes it this way
           sort(els.begin(),els.end());
           for(auto e: els) {
               ja[valpt] = e+1;//changed
               //cout<<row_id<<" ______"<<e<<endl;
-              //for Laplacian matrix:
-              //a[valpt] = (e!=row_id)? -1.0 : static_cast<NodeVal>(degree);
+              //for Laplacian matrix (Normallized L):
+              a[valpt] = (e!=row_id)? -1.0/(static_cast<NodeVal>(degree)) : 1.0 ;
               //for adjacency matrix:
-              a[valpt] = (e!=row_id)? 1.0 : 0.0;
+            //  a[valpt] = (e!=row_id)? 1.0 : 0.0;
               ++valpt;
               //cout<<valpt<<endl;
           }
