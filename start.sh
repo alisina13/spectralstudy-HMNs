@@ -9,13 +9,12 @@
 # stdout and stderr files
 #PBS -o aval.out -e aval.err
 #
-#PBS -q devel
+##PBS -q devel
 #
 # first non-empty non-comment line ends PBS options
 
 # jobs always start in $HOME -
 # change to a temporary job directory on $FASTTMP
-
 # copy input file from location where job was submitted
 EXEC="$HOME/Projects/hmn-percolation/percolation"
 
@@ -31,6 +30,9 @@ if [ ! "${HOSTN#ww8}" == "$(hostname)" ]; then
   echo  "Hi:   $SIMPATH/$INPUTFILE"
   $EXEC "$SIMPATH/$INPUTFILE"
 else
+  if [ -z ${PBS_JOBID+x} ]; then
+    exit
+  fi  
   mkdir ${HOME}/$PBS_JOBID
   cd ${HOME}/$PBS_JOBID
   module load intel64
