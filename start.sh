@@ -31,8 +31,9 @@ if [ ! "${HOSTN#ww8}" == "$(hostname)" ]; then
   $EXEC "$SIMPATH/$INPUTFILE"
 else
   if [ -z ${PBS_JOBID+x} ]; then
+    echo "run with qsub"
     exit
-  fi  
+  fi
   mkdir ${HOME}/$PBS_JOBID
   cd ${HOME}/$PBS_JOBID
   module load intel64
