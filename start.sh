@@ -1,7 +1,7 @@
 #!/bin/bash -l
 #
 # allocate 16 nodes (64 CPUs) for 6 hours
-#PBS -l nodes=4:ppn=40,walltime=16:00:00
+#PBS -l nodes=4:ppn=40,walltime=1:00:00
 #
 # job name
 #PBS -N TestAval
