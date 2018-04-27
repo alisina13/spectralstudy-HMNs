@@ -134,6 +134,15 @@ class Ensemble {
         }
         //	cout << "Network generated: " << nlinks << " links"  << endl;
         //	cout << "corrections = " << corrections << endl;
+        std::cout<<nodelist[0].neighbors.size();
+        std::cout<<nodelist[1].neighbors.size();
+        std::cout<<nodelist[2].neighbors.size();
+        std::cout<<nodelist[3].neighbors.size();
+        std::cout<<nodelist[4].neighbors.size();
+        std::cout<<nodelist[5].neighbors.size();
+        std::cout<<nodelist[6].neighbors.size();
+        std::cout<<nodelist[7].neighbors.size();
+
     }
 
     vector<Node<int>> release_link_diluted_copy(double premove)
@@ -220,6 +229,7 @@ class Ensemble {
 		  std::cout<<"different regions in network has been coloured"<<std::endl;
 		  std::cout<<"start finding giant component"<<std::endl;
 		  maximum_colours = *max_element(coloured_region.begin(), coloured_region.end());
+      std::cout<<maximum_colours<<std::endl;
 		  vector<unsigned int> cnt_colours(maximum_colours+1,0);
 		  for(unsigned int i = 0;i!=N;++i )
 			{
