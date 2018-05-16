@@ -134,6 +134,7 @@ class Ensemble {
         }
         //	cout << "Network generated: " << nlinks << " links"  << endl;
         //	cout << "corrections = " << corrections << endl;
+      
     }
 
     vector<Node<int>> release_link_diluted_copy(double premove)

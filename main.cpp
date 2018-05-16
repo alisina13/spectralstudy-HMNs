@@ -37,7 +37,7 @@ int main(int argc, char **argv)
 {
     FileReader   conf;
     /* Declaration of FEAST variables */
-    char         UPLO = 'F'; /* Type of matrix: (F means full matrix, L/U - lower/upper triangular part of matrix) */
+    char         UPLO = 'U'; /* Type of matrix: (F means full matrix, L/U - lower/upper triangular part of matrix) */
     MKL_INT      fpm[128];      /* Array to pass parameters to Intel MKL Extended Eigensolvers */
 
     /* Declaration of local variables */
@@ -148,6 +148,14 @@ int main(int argc, char **argv)
         feastinit(fpm);
 
         fpm[0] =  1; /* Extended Eigensolver routines print runtime status to the screen. */
+        fpm[13] = 0;
+        fpm[26] = 1;//check input matrices
+        fpm[27] = 0;//1,checks if matrix B positive definite
+        fpm[2]=12;
+        fpm[5]=1;//extended eigensolver stopping test
+        fpm[1]=32;//{3,4,5,6,8,10,12,16,20,24,32,40,48}
+        fpm[6]=10;//Error tarce single precision stopping crieteria
+
 
 
 
