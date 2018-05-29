@@ -16,7 +16,7 @@
 # jobs always start in $HOME -
 # change to a temporary job directory on $FASTTMP
 # copy input file from location where job was submitted
-EXEC="$HOME/Projects/hmn-percolation/spectrum_L_percolation"
+EXEC="$HOME/Projects/hmn-percolation/percolation"
 
 INPUTFILE='FileReaderTestInput.txt'
 SIMPATH="$HOME/Projects/hmn-percolation/Results/laplacianTest"
