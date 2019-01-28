@@ -1,0 +1,5 @@
+install_headers('FileReader.h')
+install_headers('NetworkCSR.h')
+install_headers('percolation.h')
+install_headers('Random.h')
+install_headers('Types.hpp')
