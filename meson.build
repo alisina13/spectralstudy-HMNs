@@ -25,6 +25,8 @@ if not get_option('buildtype').contains('debug')
 	add_global_arguments('-DNDEBUG', language: 'cpp')
 else
 	# debug Blitz++
+	add_global_arguments('-O3', language : 'cpp')
+	# add_global_arguments('-march=native', language : 'cpp')
 	add_global_arguments('-DBZ_DEBUG', language: 'cpp')
 endif
 
